@@ -1,5 +1,7 @@
 package com.example.spring02.service.member;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import com.example.spring02.model.member.dto.MemberVO;
@@ -11,4 +13,6 @@ public interface MemberService {
 	public MemberVO viewMember(MemberVO vo);
 	// 02. 회원 로그아웃
 	public void logout(HttpSession session);
+	
+	public void join(MemberVO vo);
 }

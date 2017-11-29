@@ -100,5 +100,5 @@ public class BoardVO {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer
 				+ ", userName=" + userName + ", regdate=" + regdate + ", viewcnt=" + viewcnt + ", recnt=" + recnt
 				+ ", show=" + show + ", files=" + Arrays.toString(files) + "]";
-	}
+	} 
 }

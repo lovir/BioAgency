@@ -31,21 +31,31 @@
 </script>
 </head>
 <body>
+<div class="container-fluid">
 <%@ include file="../include/menu.jsp" %>
-<h2>로그인</h2>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">로그인</div>
+					<div class="panel-body">
+						<div class="form-inline">
+							<div class="row">
+							
 	<form name="form1" method="post">
-		<table border="1" width="400px">
+		<table border="1" width="400px" class="table table-striped">
 			<tr>
 				<td>아이디</td>
-				<td><input name="userId" id="userId"></td>
+				<td><input name="userId" id="userId" class="form-control"></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="userPw" id="userPw"></td>
+				<td><input type="password" name="userPw" id="userPw" class="form-control"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<button type="button" id="btnLogin">로그인</button>
+					<button type="button" class="btn btn-primary" onClick="location.href='joinForm.do'">회원가입</button>
+					<button type="button" id="btnLogin"  class="btn btn-primary" >로그인</button>
 				<c:if test="${msg == 'failure'}">
 					<div style="color: red">
 						아이디 또는 비밀번호가 일치하지 않습니다.
@@ -62,8 +72,17 @@
 					</div>
 				</c:if>
 				</td>
+				
 			</tr>
 		</table>
 	</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>	
 </body>
 </html>

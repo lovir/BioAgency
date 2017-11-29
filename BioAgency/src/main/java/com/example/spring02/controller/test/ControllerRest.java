@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.spring02.model.board.dto.BoardVO;
 
+
 @RestController
 @RequestMapping("/rest/*")
 public class ControllerRest {

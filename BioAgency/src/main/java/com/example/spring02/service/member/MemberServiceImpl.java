@@ -1,5 +1,7 @@
 package com.example.spring02.service.member;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -39,4 +41,15 @@ public class MemberServiceImpl implements MemberService {
 		// 세션 정보를 초기화 시킴
 		session.invalidate();
 	}
+	
+	// 03. 회원 가입 처리
+	@Override
+	public void join(MemberVO vo) {
+	 //if(vo.getUserPw().equals(params.get("pwd_CHECK")))
+     //   {
+		memberDao.insertMember(vo);
+      //  }
+	//	return result;
+	}
+	
 }

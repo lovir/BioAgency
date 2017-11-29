@@ -1,5 +1,7 @@
 package com.example.spring02.model.member.dao;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -29,5 +31,11 @@ public class MemberDAOImpl implements MemberDAO {
 	// 02. 회원 로그아웃
 	@Override
 	public void logout(HttpSession sessin) {
+	}
+	
+	// 03. 회원 가입 처리
+	@Override
+	public void insertMember(MemberVO vo){
+		sqlSession.insert("member.insertMember", vo);
 	}
 }
