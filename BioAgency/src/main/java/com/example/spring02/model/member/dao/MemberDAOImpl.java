@@ -19,9 +19,9 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	// 01_01. 회원 로그인체크
 	@Override
-	public boolean loginCheck(MemberVO vo) {
-		String name = sqlSession.selectOne("member.loginCheck", vo);
-		return (name == null) ? false : true;
+	public String loginCheck(MemberVO vo) {
+		String status = sqlSession.selectOne("member.loginCheck", vo);
+		return (status == null) ? "실패" : (status.equals("요청")) ? "요청" : "성공";
 	}
 	// 01_02. 회원 로그인 정보
 	@Override

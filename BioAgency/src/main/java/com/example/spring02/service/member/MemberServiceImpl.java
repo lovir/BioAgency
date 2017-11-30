@@ -18,9 +18,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 01_01. 회원 로그인체크
 	@Override
-	public boolean loginCheck(MemberVO vo, HttpSession session) {
-		boolean result = memberDao.loginCheck(vo);
-		if (result) { // true일 경우 세션에 등록
+	public String loginCheck(MemberVO vo, HttpSession session) {
+		String result = memberDao.loginCheck(vo);
+		if (result.equals("성공")) { // true일 경우 세션에 등록
 			MemberVO vo2 = viewMember(vo);
 			// 세션 변수 등록
 			session.setAttribute("userId", vo2.getUserId());

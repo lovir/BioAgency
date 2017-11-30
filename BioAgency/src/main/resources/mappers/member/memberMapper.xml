@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 	
 	<select id="loginCheck" resultType="String">
-		SELECT name AS userName FROM member
+		SELECT status AS status FROM member
 		WHERE userid = #{userId} AND pwd = #{userPw}
 	</select>
 	

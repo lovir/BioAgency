@@ -61,6 +61,11 @@
 						아이디 또는 비밀번호가 일치하지 않습니다.
 					</div>
 				</c:if>
+				<c:if test="${msg == 'request'}">
+					<div style="color: red">
+						회원 가입 요청 처리중입니다.
+					</div>
+				</c:if>
 				<c:if test="${param.msg == 'nologin'}">
 					<div style="color: red">
 						로그인 후 사용이 가능합니다.

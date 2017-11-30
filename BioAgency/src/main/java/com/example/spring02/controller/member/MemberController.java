@@ -35,12 +35,16 @@ public class MemberController {
 	// 02. 로그인 처리
 	@RequestMapping("loginCheck.do")
 	public ModelAndView loginCheck(@ModelAttribute MemberVO vo, HttpSession session){
-		boolean result = memberService.loginCheck(vo, session);
+		String result = memberService.loginCheck(vo, session);
 		ModelAndView mav = new ModelAndView();
-		if (result == true) { // 로그인 성공
+		if (result.equals("성공")) { // 로그인 성공
 			// main.jsp로 이동
 			mav.setViewName("home");
 			mav.addObject("msg", "success");
+		} else if (result.equals("요청")) {
+			// login.jsp로 이동
+			mav.setViewName("member/login");
+			mav.addObject("msg", "request");			
 		} else {	// 로그인 실패
 			// login.jsp로 이동
 			mav.setViewName("member/login");
