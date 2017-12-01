@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="member">
 	
 	<select id="loginCheck" resultType="String">
-		SELECT name AS userName FROM member
-		WHERE userid = #{userId} AND user_pw = #{userPw}
+		SELECT status AS status FROM member
+		WHERE userid = #{userId} AND pwd = #{userPw}
 	</select>
 	
 	<select id="viewMember" resultType="com.example.spring02.model.member.dto.MemberVO">
@@ -29,4 +29,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			) A
 		) WHERE rn BETWEEN #{start} AND #{end}
 	</sql>
+	
+	<insert id="insertMember">
+        insert into member (name, userid, pwd, phone, upper_member, status) values
+        (#{userName}, #{userId}, #{userPw}, #{phone}, #{upper_member}, #{status})
+    </insert>
+    <update id="updateMember" >
+        update member set
+        name = #{userName}, pwd = #{userPw},
+        email = #{userEmail}, phone = #{phone}, admin = #{admin}
+        where userid = #{userId}
+    </update>
+    <delete id="deleteMember">
+        delete from member where userid = #{userid}
+    </delete>
 </mapper>

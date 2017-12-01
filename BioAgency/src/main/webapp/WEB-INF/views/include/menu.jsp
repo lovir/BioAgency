@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- jstl 코어 태그 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="page-header">
 <a href="${path}/board/list.do">게시판</a> |
 <a href="${path}/upload/uploadForm">업로드</a> |
 <a href="${path}/upload/uploadAjax">업로드(AJAX)</a> |
@@ -22,4 +23,5 @@
 		<a href="${path}/member/logout.do">로그아웃</a> |
 	</c:otherwise>
 </c:choose>	
+</div>
 <hr>

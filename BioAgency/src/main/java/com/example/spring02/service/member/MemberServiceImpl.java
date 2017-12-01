@@ -1,5 +1,7 @@
 package com.example.spring02.service.member;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -16,9 +18,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 01_01. 회원 로그인체크
 	@Override
-	public boolean loginCheck(MemberVO vo, HttpSession session) {
-		boolean result = memberDao.loginCheck(vo);
-		if (result) { // true일 경우 세션에 등록
+	public String loginCheck(MemberVO vo, HttpSession session) {
+		String result = memberDao.loginCheck(vo);
+		if (result.equals("성공")) { // true일 경우 세션에 등록
 			MemberVO vo2 = viewMember(vo);
 			// 세션 변수 등록
 			session.setAttribute("userId", vo2.getUserId());
@@ -39,4 +41,15 @@ public class MemberServiceImpl implements MemberService {
 		// 세션 정보를 초기화 시킴
 		session.invalidate();
 	}
+	
+	// 03. 회원 가입 처리
+	@Override
+	public void join(MemberVO vo) {
+	 //if(vo.getUserPw().equals(params.get("pwd_CHECK")))
+     //   {
+		memberDao.insertMember(vo);
+      //  }
+	//	return result;
+	}
+	
 }

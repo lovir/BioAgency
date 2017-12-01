@@ -9,6 +9,10 @@ public class MemberVO {
 	private String userEmail; 
 	private Date userRegdate; // java.sql.Date
 	private Date userUpdatedate;
+	private String phone;
+	private String upper_member;
+	private String status;
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -49,6 +53,24 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [userId=" + userId + ", userPw=" + userPw + ", userName=" + userName + ", userEmail="
 				+ userEmail + ", userRegdate=" + userRegdate + ", userUpdatedate=" + userUpdatedate + "]";
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getUpper_member() {
+		return upper_member;
+	}
+	public void setUpper_member(String upper_member) {
+		this.upper_member = upper_member;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }
