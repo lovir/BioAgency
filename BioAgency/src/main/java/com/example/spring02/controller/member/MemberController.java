@@ -1,6 +1,8 @@
 package com.example.spring02.controller.member;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.spring02.model.board.dto.BoardVO;
 import com.example.spring02.model.member.dto.MemberVO;
 import com.example.spring02.service.member.MemberService;
 
@@ -45,6 +48,10 @@ public class MemberController {
 			// login.jsp로 이동
 			mav.setViewName("member/login");
 			mav.addObject("msg", "request");			
+		} else if (result.equals("관리자")) {
+			// 관리자 홈으로 이동
+			mav.setViewName("admin/adminHome"); // 관리자 페이지 이동
+			mav.addObject("msg", "success");			
 		} else {	// 로그인 실패
 			// login.jsp로 이동
 			mav.setViewName("member/login");
@@ -83,4 +90,15 @@ public class MemberController {
 		mav.setViewName("member/login");
 		return mav;
 	}
+	
+	@RequestMapping("list.do")
+    public ModelAndView list(HttpSession session){
+		List<MemberVO> list = memberService.list(session);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list); // list
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("map", map);
+        mav.setViewName("member/list");
+        return mav;
+    }	
 }

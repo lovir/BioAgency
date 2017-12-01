@@ -7,8 +7,8 @@
 <body>
 <%@ include file="../include/menu.jsp" %>
 	<c:if test="${msg == 'success'}">
-	<h2>${sessionScope.adminName}
-	(${sessionScope.adminId})님 환영합니다.</h2>
+	<h2>${sessionScope.userName}
+	(${sessionScope.userId})님 환영합니다.</h2>
 	</c:if>
 	
 	${result}

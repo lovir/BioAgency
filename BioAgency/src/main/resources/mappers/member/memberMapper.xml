@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 페이징 sql -->
 	<sql id="pagingHeader">
 		SELECT * FROM (
-			SELECT ROWNUM AS rn, A.* FROM (
+			SELECT ROW_NUMBER() OVER (ORDER BY userid ASC) AS rn, A.* FROM (
 	</sql>
 	<sql id="pagingFooter">
 			) A
@@ -43,4 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <delete id="deleteMember">
         delete from member where userid = #{userid}
     </delete>
+    <select id="selectAll" resultType="com.example.spring02.model.member.dto.MemberVO">
+        select * from member
+    </select>
 </mapper>

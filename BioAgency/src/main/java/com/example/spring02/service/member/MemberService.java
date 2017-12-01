@@ -1,6 +1,7 @@
 package com.example.spring02.service.member;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,4 +16,5 @@ public interface MemberService {
 	public void logout(HttpSession session);
 	
 	public void join(MemberVO vo);
+	public List<MemberVO> list(HttpSession session);
 }

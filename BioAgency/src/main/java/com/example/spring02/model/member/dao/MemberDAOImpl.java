@@ -1,6 +1,7 @@
 package com.example.spring02.model.member.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.example.spring02.model.board.dto.BoardVO;
 import com.example.spring02.model.member.dto.MemberVO;
 
 @Repository // 현재 클래스를 스프링에서 관리하는 dao bean으로 등록
@@ -21,7 +23,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public String loginCheck(MemberVO vo) {
 		String status = sqlSession.selectOne("member.loginCheck", vo);
-		return (status == null) ? "실패" : (status.equals("요청")) ? "요청" : "성공";
+		return (status == null) ? "실패" : (status.equals("요청")) ? "요청" : (status.equals("관리자")) ? "관리자" : "성공";
 	}
 	// 01_02. 회원 로그인 정보
 	@Override
@@ -37,5 +39,11 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void insertMember(MemberVO vo){
 		sqlSession.insert("member.insertMember", vo);
+	}
+	
+	// 03. 회원 관리
+	@Override
+	public List<MemberVO> selectAll(){
+		return sqlSession.selectList("member.selectAll"); 
 	}
 }
