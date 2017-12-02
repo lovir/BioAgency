@@ -17,4 +17,7 @@ public interface MemberService {
 	
 	public void join(MemberVO vo);
 	public List<MemberVO> list(HttpSession session);
+	public Object read(String userid);
+	public void delete(String userid);
+	public void update(MemberVO vo);
 }

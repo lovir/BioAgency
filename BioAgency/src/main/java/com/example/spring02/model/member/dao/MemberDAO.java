@@ -15,4 +15,7 @@ public interface MemberDAO {
 	public void logout(HttpSession session);
 	public void insertMember(MemberVO vo);
 	public List<MemberVO> selectAll();
+	public MemberVO detailView(String userid);
+	public void deleteMember(String userid);
+	public void updateMember(MemberVO vo);
 }

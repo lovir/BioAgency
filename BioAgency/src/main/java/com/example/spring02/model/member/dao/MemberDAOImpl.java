@@ -41,9 +41,24 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.insert("member.insertMember", vo);
 	}
 	
-	// 03. 회원 관리
+	// 04. 회원 관리
 	@Override
 	public List<MemberVO> selectAll(){
 		return sqlSession.selectList("member.selectAll"); 
+	}
+	@Override
+	public MemberVO detailView(String userid) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("member.detailView", userid);
+	}
+	@Override
+	public void deleteMember(String userid) {
+		// TODO Auto-generated method stub
+		sqlSession.delete("member.deleteMember", userid);
+	}
+	@Override
+	public void updateMember(MemberVO vo) {
+		// TODO Auto-generated method stub
+		sqlSession.update("member.updateMember", vo);
 	}
 }

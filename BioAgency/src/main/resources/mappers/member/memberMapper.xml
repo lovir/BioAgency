@@ -16,9 +16,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			name AS userName,
 			userid AS userId,
 			email AS userEmail,
-			regdate AS userRegdate
+			regdate AS userRegdate,
+			status,
+			phone,
+			birthdate,
+			address,
+			account,
+			contract_sdate,
+			upper_member
 		FROM member
-		WHERE userid = #{userId} AND pwd = #{userPw}
+		WHERE userid = #{userId} 
 	</select>
 	<!-- 페이징 sql -->
 	<sql id="pagingHeader">
@@ -31,19 +38,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</sql>
 	
 	<insert id="insertMember">
-        insert into member (name, userid, pwd, phone, upper_member, status) values
-        (#{userName}, #{userId}, #{userPw}, #{phone}, #{upper_member}, #{status})
+        insert into member (name, userid, pwd, phone, upper_member, status, regdate) values
+        (#{userName}, #{userId}, #{userPw}, #{phone}, #{upper_member}, #{status}, nowe())
     </insert>
     <update id="updateMember" >
         update member set
-        name = #{userName}, pwd = #{userPw},
-        email = #{userEmail}, phone = #{phone}, admin = #{admin}
+         name = #{userName}, birthdate=#{birthdate}, address = #{address}, account = #{account},
+         contract_sdate = #{contract_sdate}, email = #{userEmail}, phone = #{phone},
+         updatedate = now()
         where userid = #{userId}
     </update>
     <delete id="deleteMember">
         delete from member where userid = #{userid}
     </delete>
     <select id="selectAll" resultType="com.example.spring02.model.member.dto.MemberVO">
-        select * from member
+        select name AS userName,
+			userid AS userId,
+			email AS userEmail,
+			regdate AS userRegdate,
+			status,
+			phone
+		 from member
     </select>
+    <select id="detailView" resultType="com.example.spring02.model.member.dto.MemberVO">
+		SELECT 
+			name AS userName,
+			userid AS userId,
+			email AS userEmail,
+			regdate AS userRegdate,
+			status,
+			phone,
+			birthdate,
+			address,
+			account,
+			contract_sdate,
+			upper_member
+		FROM member
+		WHERE userid = #{userid} 
+	</select>
 </mapper>

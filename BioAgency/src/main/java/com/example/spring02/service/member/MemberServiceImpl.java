@@ -63,4 +63,20 @@ public class MemberServiceImpl implements MemberService {
 	//	return result;
 	}
 	
+	// 05. 회원 상세 정보
+	@Override
+	public MemberVO read(String userid) {
+		return memberDao.detailView(userid);
+	}
+	@Override
+	public void delete(String userid) {
+		// TODO Auto-generated method stub
+		memberDao.deleteMember(userid);
+	}
+	@Override
+	public void update(MemberVO vo) {
+		// TODO Auto-generated method stub
+		memberDao.updateMember(vo);
+	}
+	
 }

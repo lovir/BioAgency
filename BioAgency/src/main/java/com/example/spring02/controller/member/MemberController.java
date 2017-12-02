@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -78,12 +79,6 @@ public class MemberController {
 	
 	// 05. 회원 가입 처리
 	@RequestMapping("join.do")
-//    public String join(@RequestParam HashMap<String, Object> params)
-//    {
-//        System.out.println(params);
-//        memberService.joinMember(params);
-//        return "redirect:login.do"; 
-//    }
 	public ModelAndView join(@ModelAttribute MemberVO vo){
 		memberService.join(vo);
 		ModelAndView mav = new ModelAndView();
@@ -91,6 +86,7 @@ public class MemberController {
 		return mav;
 	}
 	
+	// 06. 회원 목록
 	@RequestMapping("list.do")
     public ModelAndView list(HttpSession session){
 		List<MemberVO> list = memberService.list(session);
@@ -101,4 +97,31 @@ public class MemberController {
         mav.setViewName("member/list");
         return mav;
     }	
+	
+	// 07. 회원 상세 보기
+	@RequestMapping(value="detail.do", method=RequestMethod.GET)
+    public ModelAndView detail(@RequestParam String userid, HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		// 뷰의 이름
+		mav.setViewName("member/detail");
+		// 뷰에 전달할 데이터
+		// 댓글의 수 : 댓글이 존재하는 게시물의 삭제처리 방지하기 위해
+		mav.addObject("dto", memberService.read(userid));
+		logger.info("mav:", mav);
+		return mav;
+    }
+	// 08. 회원 삭제
+	@RequestMapping(value="delete.do", method=RequestMethod.POST)
+    public String delete(@RequestParam String userId, HttpSession session) throws Exception{
+		memberService.delete(userId);
+		return "redirect:list.do";
+    }
+	
+	// 09. 회원 정보 수정
+	//@RequestMapping(value="update.do", method=RequestMethod.POST)
+	@RequestMapping("update.do")
+	public String update(@ModelAttribute MemberVO vo) throws Exception{
+		memberService.update(vo);
+		return "redirect:list.do";
+	}
 }
