@@ -111,7 +111,7 @@ public class MemberController {
 		return mav;
     }
 	// 08. 회원 삭제
-	@RequestMapping(value="delete.do", method=RequestMethod.POST)
+	@RequestMapping(value="delete.do", method=RequestMethod.GET)
     public String delete(@RequestParam String userId, HttpSession session) throws Exception{
 		memberService.delete(userId);
 		return "redirect:list.do";

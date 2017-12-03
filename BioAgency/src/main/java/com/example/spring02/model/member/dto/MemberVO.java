@@ -15,7 +15,7 @@ public class MemberVO {
 	private String birthdate;
 	private String address;
 	private String account;
-	private Date contract_sdate;
+	private String contract_sdate;
 	
 	public String getUserId() {
 		return userId;
@@ -94,10 +94,10 @@ public class MemberVO {
 	public void setAccount(String account) {
 		this.account = account;
 	}
-	public Date getContract_sdate() {
+	public String getContract_sdate() {
 		return contract_sdate;
 	}
-	public void setContract_sdate(Date contract_sdate) {
+	public void setContract_sdate(String contract_sdate) {
 		this.contract_sdate = contract_sdate;
 	}
 	

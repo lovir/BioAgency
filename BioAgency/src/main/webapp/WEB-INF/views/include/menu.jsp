@@ -4,7 +4,7 @@
 <div class="page-header">
 <a href="${path}/member/list.do">회원관리</a> |
 <a href="${path}/board/list.do">게시판</a> |
-<a href="${path}/upload/uploadForm">업로드</a> |
+<a href="${path}/payment/list.do">수당관리</a> |
 <a href="${path}/upload/uploadAjax">업로드(AJAX)</a> |
 <a href="${path}/shop/product/list.do">상품목록</a> |
 <a href="${path}/shop/cart/list.do">장바구니</a> |
