@@ -4,11 +4,8 @@
 <div class="page-header">
 <a href="${path}/member/list.do">회원관리</a> |
 <a href="${path}/board/list.do">게시판</a> |
-<a href="${path}/payment/list.do">수당관리</a> |
-<a href="${path}/upload/uploadAjax">업로드(AJAX)</a> |
-<a href="${path}/shop/product/list.do">상품목록</a> |
-<a href="${path}/shop/cart/list.do">장바구니</a> |
-
+<a href="${path}/payment/list.do">수당</a> |
+<a href="${path}/sales/list.do">매출관리</a> |
 <!-- 관리자 권한일 경우 -->
 <c:if test="${sessionScope.adminId != null }">
 <a href="${path}/shop/product/write.do">상품등록</a> |
