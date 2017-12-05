@@ -1,6 +1,10 @@
 package com.example.spring02.service.member;
 
 import java.util.HashMap;
+<<<<<<< HEAD
+=======
+import java.util.List;
+>>>>>>> branch 'master' of https://github.com/lovir/BioAgency
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -20,7 +24,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String loginCheck(MemberVO vo, HttpSession session) {
 		String result = memberDao.loginCheck(vo);
+<<<<<<< HEAD
 		if (result.equals("성공")) { // true일 경우 세션에 등록
+=======
+		if (result.equals("성공") || result.equals("관리자")) { // true일 경우 세션에 등록
+>>>>>>> branch 'master' of https://github.com/lovir/BioAgency
 			MemberVO vo2 = viewMember(vo);
 			// 세션 변수 등록
 			session.setAttribute("userId", vo2.getUserId());
@@ -52,4 +60,33 @@ public class MemberServiceImpl implements MemberService {
 	//	return result;
 	}
 	
+<<<<<<< HEAD
+=======
+	// 04. 회원 리스트 보기
+	@Override
+	public List<MemberVO> list(HttpSession session) {
+	 //if(vo.getUserPw().equals(params.get("pwd_CHECK")))
+     //   {
+		return memberDao.selectAll();
+      //  }
+	//	return result;
+	}
+	
+	// 05. 회원 상세 정보
+	@Override
+	public MemberVO read(String userid) {
+		return memberDao.detailView(userid);
+	}
+	@Override
+	public void delete(String userid) {
+		// TODO Auto-generated method stub
+		memberDao.deleteMember(userid);
+	}
+	@Override
+	public void update(MemberVO vo) {
+		// TODO Auto-generated method stub
+		memberDao.updateMember(vo);
+	}
+	
+>>>>>>> branch 'master' of https://github.com/lovir/BioAgency
 }

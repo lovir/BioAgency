@@ -2,12 +2,13 @@
 <!-- jstl 코어 태그 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="page-header">
+<<<<<<< HEAD
+=======
+<a href="${path}/member/list.do">회원관리</a> |
+>>>>>>> branch 'master' of https://github.com/lovir/BioAgency
 <a href="${path}/board/list.do">게시판</a> |
-<a href="${path}/upload/uploadForm">업로드</a> |
-<a href="${path}/upload/uploadAjax">업로드(AJAX)</a> |
-<a href="${path}/shop/product/list.do">상품목록</a> |
-<a href="${path}/shop/cart/list.do">장바구니</a> |
-
+<a href="${path}/payment/list.do">수당</a> |
+<a href="${path}/sales/list.do">매출관리</a> |
 <!-- 관리자 권한일 경우 -->
 <c:if test="${sessionScope.adminId != null }">
 <a href="${path}/shop/product/write.do">상품등록</a> |

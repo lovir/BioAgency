@@ -1,6 +1,10 @@
 package com.example.spring02.service.member;
 
 import java.util.HashMap;
+<<<<<<< HEAD
+=======
+import java.util.List;
+>>>>>>> branch 'master' of https://github.com/lovir/BioAgency
 
 import javax.servlet.http.HttpSession;
 
@@ -15,4 +19,11 @@ public interface MemberService {
 	public void logout(HttpSession session);
 	
 	public void join(MemberVO vo);
+<<<<<<< HEAD
+=======
+	public List<MemberVO> list(HttpSession session);
+	public Object read(String userid);
+	public void delete(String userid);
+	public void update(MemberVO vo);
+>>>>>>> branch 'master' of https://github.com/lovir/BioAgency
 }

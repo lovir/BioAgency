@@ -12,6 +12,13 @@ public class MemberVO {
 	private String phone;
 	private String upper_member;
 	private String status;
+<<<<<<< HEAD
+=======
+	private String birthdate;
+	private String address;
+	private String account;
+	private String contract_sdate;
+>>>>>>> branch 'master' of https://github.com/lovir/BioAgency
 	
 	public String getUserId() {
 		return userId;
@@ -72,5 +79,32 @@ public class MemberVO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+<<<<<<< HEAD
+=======
+	public String getBirthdate() {
+		return birthdate;
+	}
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	public String getContract_sdate() {
+		return contract_sdate;
+	}
+	public void setContract_sdate(String contract_sdate) {
+		this.contract_sdate = contract_sdate;
+	}
+>>>>>>> branch 'master' of https://github.com/lovir/BioAgency
 	
 }
